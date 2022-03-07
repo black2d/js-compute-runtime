@@ -5,7 +5,8 @@ CXX_OPT ?= -O2
 
 MODE=release
 CARGO_FLAG=--release
-ifdef DEBUG
+ifneq  ($(DEBUG),false)
+$(info   In debug mode)
   MODE=debug
   CARGO_FLAG=
   CXX_OPT := $(CXX_OPT) -DDEBUG -DJS_DEBUG
